@@ -9,9 +9,9 @@ class Solution {
   public:
     string revStr(string S) {
         // code here
-        string rev=S;
-        reverse(rev.begin(),rev.end());
-        return rev;
+       string rev=S;
+       reverse(rev.begin(),rev.end());
+       return rev;
     }
 };
 
