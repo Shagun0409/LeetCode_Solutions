@@ -11,3 +11,10 @@ s=s+nums[i];
         return sum-s;
     }
 };
+
+static const int FAST_IO = [](){
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    return 0;
+}();
