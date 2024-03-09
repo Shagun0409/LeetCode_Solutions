@@ -8,6 +8,7 @@ public:
                 curr++;
             }
             else{
+                count=max(count,curr);
                 curr=0;
             }
             count=max(count,curr);
