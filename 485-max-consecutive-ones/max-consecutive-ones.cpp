@@ -5,14 +5,14 @@ public:
         int curr=0;
         for(int i=0;i<nums.size();i++){
             if(nums[i]==1){
-                curr++;
-            }
+                curr++;}
             else{
                 count=max(count,curr);
                 curr=0;
             }
-            count=max(count,curr);
+       
         }
+        count=max(count,curr);
         return count;
     }
 };
