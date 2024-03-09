@@ -10,9 +10,9 @@ public:
                 count=max(count,curr);
                 curr=0;
             }
-       
+          count=max(count,curr);
         }
-        count=max(count,curr);
+     
         return count;
     }
 };
