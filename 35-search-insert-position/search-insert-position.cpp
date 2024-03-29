@@ -6,7 +6,9 @@ public:
         int ans=nums.size();
         while(low<=high){
             int mid=(low+high)/2;
-            if(nums[mid]>=target){
+            if (nums[mid] == target) {
+                return mid;}
+           else if(nums[mid]>=target){
                 ans=mid;
                 high=mid-1;
             }
