@@ -2,21 +2,28 @@ class Solution {
 public:
     string reverseWords(string s) {
         stack<string> st;
-        for(int i=0;i<s.length();i++){
-            string word="";
-            while(s[i]!=' ' && i<s.length()){
-                word+=s[i];
-                i++;
+        string res="";
+        
+        for(int i=0;i<s.length();i++)
+        {
+            if(s[i] != ' '){
+                res+=s[i];
             }
-            if(word!=" "&& !word.empty()) st.push(word);
+            else if(s[i]==' ' && res !=""){
+                st.push(res);
+                res="";
+            }
         }
-
-        string str="";
+        if(res != "") st.push(res);
+        
+        string ans="";
         while(!st.empty()){
-            str=str+st.top();
+            string res=st.top();
             st.pop();
-            if(!st.empty())  str+=" ";
+            if(!st.empty()) ans+=res+" ";
+            else ans+=res;
         }
-        return str;
+        return ans;
+        
     }
 };
