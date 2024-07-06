@@ -6,9 +6,9 @@ public:
 int n=nums.size();
         for(int i=0;i<n;i++){
             sum=sum+nums[i];
-            if(maxi<nums[i]){
-                maxi=nums[i];
-            }
+            // if(maxi<nums[i]){
+            //     maxi=nums[i];
+            // }
 
         }
         int u=(n*(n+1))/2;
