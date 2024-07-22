@@ -7,13 +7,13 @@ int n=heights.size();
             mp[heights[i]]=names[i];
         }
        sort(heights.begin(),heights.end());
-         vector<string> result(heights.size());
+         vector<string> ans(n);
        int index=0;
-       for(int i=heights.size()-1; i>=0; i--){
-        result[index] = mp[heights[i]];
+       for(int i=n-1; i>=0; i--){
+        ans[index] = mp[heights[i]];
         index++;
        }
 
-       return result;
+       return ans;
     }
 };
