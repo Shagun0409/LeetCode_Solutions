@@ -20,9 +20,7 @@ public:
         int n=board.size();
         int m=board[0].size();
         vector<vector<int>> vis(n,vector<int>(m,0));
-        // my approach is if the boundary of the matrix is having 'O' then it cannot be converted into 'X'
-        // traversing first and last row
-
+        
         for(int j=0;j<m;j++){
             if(!vis[0][j] && board[0][j]=='O'){
                 dfs(0,j,vis,board);
@@ -39,7 +37,7 @@ public:
                 dfs(i,m-1,vis,board);
             }
         } 
-        // now after checking the boundary of a given matrix and if it is safe then we traverse the entire matrix and check if the matrix is having 'O' then we convert it to 'X'
+      
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
                 if(!vis[i][j] && board[i][j]=='O'){
