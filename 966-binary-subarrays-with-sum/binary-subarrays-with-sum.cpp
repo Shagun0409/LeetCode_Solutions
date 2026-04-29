@@ -1,31 +1,34 @@
 class Solution {
-public:
 
 
 
-int func(vector<int> & nums,int k){
-    int n=nums.size();
+    public:
+
+    int numSubarraysWithSum(vector<int>& nums, int goal) {
+        // Return difference between subarrays with sum at most goal and at most (goal - 1)
+        return atMost(nums, goal) - atMost(nums, goal - 1);
+    }
+private:
+
+int atMost(vector<int>& nums, int goal){
+    if (goal < 0) return 0;
     int l=0;
     int r=0;
     int sum=0;
-    int cnt=0;
-    while(r<n){
+    int count=0;
+    while(r<nums.size()){
         sum=sum+nums[r];
-        if(k<0) return 0;
-        while(sum>k){
+        while(sum>goal){
             sum=sum-nums[l];
             l++;
         }
-        cnt=cnt+(r-l+1);
-        r++;
-    }
-    return cnt;
-}
-    int numSubarraysWithSum(vector<int>& nums, int goal) {
-        return func(nums,goal)-func(nums,goal-1);
-        
-    }
+    
+        count=count+(r-l+1);
+     r++;
 
+    }
+    return count;
+}
 
 
 };
