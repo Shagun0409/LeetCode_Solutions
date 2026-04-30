@@ -1,4 +1,6 @@
 class Solution {
+
+
 public:
     int num(vector<int>& nums, int k) {
         int l = 0;
@@ -24,7 +26,9 @@ public:
         return ans;
     }
 
-    int numberOfSubarrays(vector<int>& nums, int k) {
-        return num(nums, k) - num(nums, k - 1);
+
+
+     int numberOfSubarrays(vector<int>& nums, int k) {
+        return num(nums,k) - num(nums,k-1);
     }
 };
