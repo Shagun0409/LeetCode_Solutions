@@ -1,10 +1,12 @@
 class Solution {
 public:
     bool rotateString(string s, string goal) {
-       if(s.length()!=goal.length()) return false;
+        int n=s.length();
+        int m=goal.length();
+        if(n!=m) return false;
 
-        if((s+s).find(goal)!=-1) return true;
-        else return false;
-        
+        if ((s+s).find(goal) !=-1) return true;
+        else return false; 
+
     }
 };
