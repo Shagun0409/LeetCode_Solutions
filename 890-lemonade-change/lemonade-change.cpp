@@ -1,9 +1,6 @@
 class Solution {
 public:
     bool lemonadeChange(vector<int>& bills) {
-
-
-        
         int five = 0, ten = 0;
         for (int i : bills) {
             if (i == 5) five++;
@@ -13,6 +10,5 @@ public:
             if (five < 0) return false;
         }
         return true;
-    
     }
 };
