@@ -13,10 +13,10 @@ public:
             int curr1=arr[i-1]+1;
             int curr2=arr[i-1];
 
-            if(arr[i]==curr1 || arr[i]==curr2){
+            if( abs(arr[i]-arr[i-1])<=1){
                 continue;
             }else{
-                arr[i]=curr1;
+                arr[i]=min(arr[i],arr[i-1]+1);
             }
         }
 
