@@ -1,39 +1,47 @@
 class Solution {
 public:
     int countCompleteComponents(int n, vector<vector<int>>& edges) {
-        vector<vector<int>> A(n);
+        vector<vector<int>> adj(n);
 
-        for (auto& e : edges) {
-            int u = e[0], v = e[1];
-            A[u].push_back(v);
-            A[v].push_back(u);
+        for (auto &e : edges) {
+            adj[e[0]].push_back(e[1]);
+            adj[e[1]].push_back(e[0]);
         }
 
-        bitset<51> vis;
-        int res = 0;
+        vector<bool> vis(n, false);
+        int ans = 0;
 
         for (int i = 0; i < n; i++) {
-            bool state = vis.test(i);
+            if (vis[i]) continue;
 
-            if (!state) {
-                int V = 0, D = 0;
+            queue<int> q;
+            q.push(i);
+            vis[i] = true;
 
-                auto dfs = [&](auto& self, int x) -> void {
-                    V++;
-                    D += A[x].size();
-                    vis.set(x);
+            int nodes = 0;//number of nodes in the component
+            int edgeCount = 0; //total edges in the component
 
-                    for (auto& state : A[x])
-                        if (!vis.test(state))
-                            self(self, state);
-                };
+            while (!q.empty()) {
+                int u = q.front();
+                q.pop();
 
-                dfs(dfs, i);
+                nodes++;
+                edgeCount += adj[u].size();
 
-                res += D == V * (V - 1);
+                for (int v : adj[u]) {
+                    if (!vis[v]) {
+                        vis[v] = true;
+                        q.push(v);
+                    }
+                }
             }
+
+            edgeCount /= 2;
+
+            if (edgeCount == nodes * (nodes - 1) / 2)
+                ans++;
         }
 
-        return res;
+        return ans;
     }
 };
