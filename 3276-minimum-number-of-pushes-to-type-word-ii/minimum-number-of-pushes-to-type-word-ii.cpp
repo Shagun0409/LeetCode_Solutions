@@ -9,14 +9,14 @@ public:
         sort(freq.begin(),freq.end(),greater<int>()); // sort frequency in decreasing order
         for(int i=0;i<26;i++){
             if(i<8){
-                ans+= freq[i]; // map at first positon of all keys
+                ans+= freq[i]; 
             }
             else if(i<16){
-                ans+= freq[i]*2; // map with second position of all keys
+                ans+= freq[i]*2; 
             }else if(i<24){
-                ans+= freq[i]*3; // map with third position all keys
+                ans+= freq[i]*3; 
             }
-            else ans+= freq[i]*4; // map with fourth position of all keys
+            else ans+= freq[i]*4; 
         
         }
         return ans;
