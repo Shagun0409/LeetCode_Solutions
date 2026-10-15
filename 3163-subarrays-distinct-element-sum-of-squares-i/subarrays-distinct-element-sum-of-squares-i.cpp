@@ -5,10 +5,10 @@ public:
         int n = nums.size();
 
         for (int i = 0; i < n; i++) {
-            unordered_set<int> st;
+           set<int> st;
             for (int j = i; j < n; j++) {
-                st.insert(nums[j]);    // duplicates are ignored
-                int count = st.size(); // distinct count of nums[i..j]
+                st.insert(nums[j]);    
+                int count = st.size(); 
                 ans += count * count;
             }
         }
